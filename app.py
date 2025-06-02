@@ -11,7 +11,7 @@ diagram_types = {"bar": st.bar_chart, "line": st.line_chart, "scatter": st.scatt
 
 st.title("Diamant data analys")
 
-st.write("Guldfynd är en butik som säljer smycken och accessoarer innehållande guld och silver. Nu har de möjlighet att utöka sitt sortiment med produkter som även innehåller diamanter. För att fatta ett beslut har de tillgång till ett dataset med information om alla diamanter. Guldfynd har anlitat mig för att analysera datan åt dem med hjälp av Python. Jag kommer att undersöka om datan innehåller orimliga värden samt analysera vilka faktorer hos diamanten som påverkar priset mest. Målet med detta är att sedan ge mina insikter och rekommanadioner som kan stödja deras besult om att börja sälja produktet med diamanter.")
+st.write("Guldfynd är en butik som säljer smycken och accessoarer innehållande guld och silver. Nu har de möjlighet att utöka sitt sortiment med produkter som även innehåller diamanter. För att fatta ett beslut har de tillgång till ett dataset med information om alla diamanter. Guldfynd har anlitat mig för att analysera datan åt dem med hjälp av Python. Jag har analyserat vilka faktorer hos diamanten som påverkar priset mest och skapat diagram och visualiseringar som visar detta tydligt.")
 
 file = st.file_uploader(label="Select a csv-file", accept_multiple_files=False, type="csv" )
 
@@ -60,7 +60,7 @@ if file:
 
 
     st.subheader("Medianpris för varje kategori med samma karatvärde (karat : 0.29-0.31)")
-    st.write("Enligt diagrammen var det klarheten som visade ett tydligt mönster i diagrammen, ju högre clarity desto högre pris. Övriga diagram hade inte lika tydliga samband jämfört med klarheten. Detta tyder på att klarheten har en starkare påverkan på priset än de övriga kategoriska faktorerna.")
+    st.write("Enligt diagrammen var det klarheten som visade ett tydligt mönster i diagrammen, ju högre klarhet desto högre pris. Övriga diagram hade inte lika tydliga samband jämfört med klarheten. Detta tyder på att klarheten har en starkare påverkan på priset än de övriga kategoriska faktorerna.")
 
     same_values = df[(df['carat'] >= 0.29) & (df['carat'] <= 0.31)]
     fig2, ax = plt.subplots()
@@ -84,7 +84,7 @@ if file:
         st.pyplot(fig2)
     
     st.subheader("Medianpris för varje kategori med samma karatvärde och klarhet (karat: 0.29-0.31 and klarhet: VS2)")
-    st.write("Enligt diagrammen var det färgen som visade nu ett tydligt mönster i diagrammen, ju bättre color desto högre pris. Slipnings-diagrammet hade inte lika tydliga samband jämfört med färg-diagrammet. Detta tyder på att färgen har en starkare påverkan på priset än slipningen")
+    st.write("Enligt diagrammen var det färgen som visade nu ett tydligt mönster i diagrammen, ju bättre färg desto högre pris. Slipnings-diagrammet hade inte lika tydliga samband jämfört med färg-diagrammet. Detta tyder på att färgen har en starkare påverkan på priset än slipningen")
     same_values = df[(df['carat'] >= 0.29) & (df['carat'] <= 0.31) & (df['clarity'] == 'VS2')]
     fig3, ax = plt.subplots()
 
@@ -115,8 +115,8 @@ if file:
         st.pyplot(fig4)
 
     
-    st.title("Avslut och rekommandationer")
-    st.write(" Det som hade störst påverkan är karat. Ju högre karat desto dyrare diamant. Även diamantens dimensioner (x,y och z) påverkade priset medan depth och table hade svagare inverkan. Bland de kategoriska värden visade analysen att klarheten hade störst påverkan på priset medan slipningen hade oväntad låg påverkan. Mina rekommandtioner är att Guldfynd fokuserar erbjuda diamantsmycken med högre karat och god klarhet, eftersom de hade större påverkan på priset.")
+    st.title("Avslut")
+    st.write(" Det som hade störst påverkan är karat. Ju högre karat desto dyrare diamant. Även diamantens dimensioner (x,y och z) påverkade priset medan depth och table hade svagare inverkan. Bland de kategoriska värden visade analysen att klarheten hade störst påverkan på priset medan slipningen hade oväntad låg påverkan.")
 
 
 
