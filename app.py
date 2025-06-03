@@ -31,7 +31,7 @@ if file:
     st.write(sorted)
 
     st.subheader("Medianpris för varje kategori")
-    st.write("Enligt diagrammen var det endast karat som visade ett tydligt mönster i diagrammen, ju högre karat desto högre pris, vilket är logiskt. Övriga diagram var missvisande, exempelvis hade en bättre klarhet ett lägre medianpris än den sämsta. Detta tyder på att karaten har en starkare påverkan på priset än de andra kategoriska faktorerna.")
+    st.write("Enligt diagrammen var det endast karat som visade ett tydligt mönster i diagrammen, ju högre karat desto högre medianpris, vilket är logiskt. Övriga diagram var missvisande, exempelvis hade en bättre klarhet ett lägre medianpris än den sämsta. Detta tyder på att karaten har en starkare påverkan på priset än de andra kategoriska faktorerna.")
 
     fig, ax = plt.subplots()
 
@@ -60,12 +60,12 @@ if file:
 
 
     st.subheader("Medianpris för varje kategori med samma karatvärde (karat : 0.29-0.31)")
-    st.write("Enligt diagrammen var det klarheten som visade ett tydligt mönster i diagrammen, ju högre klarhet desto högre pris. Övriga diagram hade inte lika tydliga samband jämfört med klarheten. Detta tyder på att klarheten har en starkare påverkan på priset än de övriga kategoriska faktorerna.")
+    st.write("Enligt diagrammen var det klarheten som visade ett tydligt mönster i diagrammen, ju högre klarhet desto högre medianpris. Övriga diagram hade inte lika tydliga samband jämfört med klarheten. Detta tyder på att klarheten har en starkare påverkan på priset än de övriga kategoriska faktorerna.")
 
     same_values = df[(df['carat'] >= 0.29) & (df['carat'] <= 0.31)]
     fig2, ax = plt.subplots()
 
-    x_select = st.selectbox("Please choose your category; ",['color', 'cut', 'clarity'] )
+    x_select = st.selectbox("Please choose your category; ",['clarity','color', 'cut'] )
 
     if x_select == "color":
         median_price = same_values.groupby('color')['price'].median().reindex(['J', 'I', 'H', 'G', 'F', 'E', 'D'])
@@ -84,7 +84,7 @@ if file:
         st.pyplot(fig2)
     
     st.subheader("Medianpris för varje kategori med samma karatvärde och klarhet (karat: 0.29-0.31 and klarhet: VS2)")
-    st.write("Enligt diagrammen var det färgen som visade nu ett tydligt mönster i diagrammen, ju bättre färg desto högre pris. Slipnings-diagrammet hade inte lika tydliga samband jämfört med färg-diagrammet. Detta tyder på att färgen har en starkare påverkan på priset än slipningen")
+    st.write("Enligt diagrammen var det färgen som visade nu ett tydligt mönster i diagrammen, ju bättre färg desto högre medianpris. Slipnings-diagrammet hade inte lika tydliga samband jämfört med färg-diagrammet. Detta tyder på att färgen har en starkare påverkan på priset än slipningen.")
     same_values = df[(df['carat'] >= 0.29) & (df['carat'] <= 0.31) & (df['clarity'] == 'VS2')]
     fig3, ax = plt.subplots()
 
@@ -116,7 +116,7 @@ if file:
 
     
     st.title("Avslut")
-    st.write(" Det som hade störst påverkan är karat. Ju högre karat desto dyrare diamant. Även diamantens dimensioner (x,y och z) påverkade priset medan depth och table hade svagare inverkan. Bland de kategoriska värden visade analysen att klarheten hade störst påverkan på priset medan slipningen hade oväntad låg påverkan.")
+    st.write(" Det som hade störst påverkan är karat. Ju högre karat desto dyrare diamant. Även diamantens dimensioner (x,y och z) påverkade priset medan depth och table hade svagare inverkan. Bland de kategoriska värden visade analysen att klarheten hade störst påverkan på priset medan slipningen hade oväntad låg påverkan. Mina rekommandtioner är att Guldfynd fokuserar erbjuda diamantsmycken med högre karat och god klarhet, eftersom de hade större påverkan på priset.")
 
 
 
